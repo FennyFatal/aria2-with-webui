@@ -1,15 +1,17 @@
 FROM alpine:edge
 
-MAINTAINER xujinkai <jack777@xujinkai.net>
+MAINTAINER LaySent <laysent@gmail.com>
 
-RUN apk update && \
+RUN echo 'http://mirrors.aliyun.com/alpine/edge/community/' > /etc/apk/repositories && \
+	echo 'http://mirrors.aliyun.com/alpine/edge/main/' >> /etc/apk/repositories && \
+  apk update && \
 	apk add --no-cache --update bash && \
 	mkdir -p /conf && \
 	mkdir -p /conf-copy && \
 	mkdir -p /data && \
 	apk add --no-cache --update aria2 && \
 	apk add git && \
-	git clone https://github.com/ziahamza/webui-aria2 /aria2-webui && \
+	git clone https://github.com/ziahamza/webui-aria2 /aria2-webui --depth=1 && \
     rm /aria2-webui/.git* -rf && \
     apk del git && \
 	apk add --update darkhttpd
