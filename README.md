@@ -1,4 +1,4 @@
-Forked from [GitHub repo](https://github.com/XUJINKAI/aria2-with-webui).
+Forked from [GitHub repo](https://github.com/XUJINKAI/aria2-with-webui) and [GitHub repo](https://github.com/jackycxh/aria2-with-webui).
 
 ---
 
@@ -23,6 +23,8 @@ sudo docker run -d \
 -v /DOWNLOAD_DIR:/data \
 -v /CONFIG_DIR:/conf \
 -e SECRET=YOUR_SECRET_CODE \
+-e PUID=$(id -u) \
+-e PGID=$(id -g) \
 aria2-with-webui
 ```
 
@@ -30,7 +32,7 @@ II. Open `http://serverip:6880/` for aria2-webui, open `http://serverip:6888/` t
 
 ### Build:
 
-`sudo docker build -f Dockerfile -t xujinkai/aria2-with-webui .`
+`sudo docker build -f Dockerfile -t aria2-with-webui .`
 
 ### Link:
 
